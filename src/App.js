@@ -15,14 +15,18 @@ class App extends React.Component {
     }
 
     sortProducts = (event) => {
-      console.log(event.target.value);
-      this.setState(sortByPrice(event.target.value, this.state.products));
+      const sort=event.target.value;
+      const products = sortByPrice(sort, this.state.products);
+
+      console.log('sorted products', products);
+      this.setState((state) => ({sort, products}));
     }
 
     filterProducts = (event) => {
-      console.log(event.target.value);
-      if(event.target.value === '') {
-        this.setState({size: event.target.value, product: data.products})
+      console.log("value is " + event.target.value);
+      if(event.target.value === 'ALL') {
+        console.log("inside if")
+        this.setState({size: event.target.value, products: data.products})
       }
       else {
         this.setState(
