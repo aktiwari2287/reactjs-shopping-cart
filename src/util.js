@@ -7,7 +7,7 @@ export default function formatCurrency(num) {
                         .sort((a, b) => (
                             sort === "lowest" ? a.price > b.price ? 1 : -1
                             : (sort === "highest") ? a.price > b.price ? -1 : 1
-                            : a._id > b._id ? 1 : -1
+                            : a._id < b._id ? 1 : -1
                         ))
 
       
